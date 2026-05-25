@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Request</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(circle at top, #0f172a, #111827, #000);
+            min-height: 100vh;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 40px 20px 10px;
+            color: white;
+        }
+        
+        .brand {
+            font-size: 52px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #facc15, #ffffff, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .slogan {
+            font-size: 16px;
+            opacity: 0.85;
+        }
+        
+        .badge-company {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #facc15;
+            font-size: 12px;
+            border: 1px solid rgba(250, 204, 21, 0.4);
+            backdrop-filter: blur(6px);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            transition: 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(250, 204, 21, 0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(90deg, #facc15, #f59e0b);
+            color: #111;
+            text-align: center;
+            padding: 20px;
+            font-weight: 800;
+        }
+        
+        .card-body {
+            background: #ffffff;
+            padding: 30px;
+        }
+        
+        .mb-3 {
+            background: #ffffff;
+            padding: 14px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: 0.3s;
+        }
+        
+        .mb-3:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .form-label {
+            font-weight: 700;
+            color: #1f2937;
+        }
+        
+        .form-control {
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 12px 14px;
+            background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+            font-weight: 500;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05), 0 4px 10px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        input[required],
+        textarea[required] {
+            border-left: 5px solid #facc15;
+        }
+        
+        input[required]:focus,
+        textarea[required]:focus {
+            border-left: 5px solid #f59e0b;
+            box-shadow: 0 0 0 4px rgba(250, 204, 21, 0.25), 0 10px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            resize: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #f59e0b, #facc15);
+            border: none;
+            font-weight: 800;
+            padding: 14px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(250, 204, 21, 0.25);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(250, 204, 21, 0.35);
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            font-size: 12px;
+            margin-top: 20px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="brand">Golden Request</div>
+        <div class="slogan">El estándar de oro en pedidos web</div>
+        <div class="badge-company">
+            <i class="bi bi-shield-check"></i> Sistema Empresarial Seguro
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="container pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+
+                <div class="card mt-4">
+
+                    <div class="card-header">
+                        <i class="bi bi-clipboard-check"></i> Registro de Solicitudes
+                    </div>
+
+                    <div class="card-body">
+
+                        <form id="formularioPedido">
+
+                            <div class="mb-3">
+                                <label class="form-label">Nombre Completo</label>
+                                <input type="text" name="cliente" class="form-control" placeholder="Nombre completo" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Correo Electrónico</label>
+                                <input type="email" name="correo" class="form-control" placeholder="correo@ejemplo.com" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Teléfono</label>
+                                <input type="text" name="telefono" class="form-control" placeholder="Número de contacto" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Título del Proyecto</label>
+                                <input type="text" name="titulo" class="form-control" placeholder="Título del pedido" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Descripción</label>
+                                <textarea name="descripcion" rows="4" class="form-control" placeholder="Descripción del royecto" required></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Archivo</label>
+                                <input type="file" name="archivo" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Observaciones</label>
+                                <textarea name="obsCliente" rows="3" class="form-control" placeholder="Observaciones opcionales"></textarea>
+                            </div>
+
+                            <button type="submit" id="btnEnviar" class="btn btn-primary w-100">
+                                <i class="bi bi-send"></i> Enviar Solicitud
+                            </button>
+
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Golden Request - Sistema Empresarial de Pedidos
+    </div>
+
+    <!-- ✅ MODAL NUEVO (AÑADIDO) -->
+    <div class="modal fade" id="modalExito" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+
+                <h4 class="text-success">✔ Solicitud Registrada</h4>
+
+                <p class="mt-2">
+                    <strong id="nombreCliente"></strong><br> Agradecemos por la confianza
+                </p>
+
+                <button class="btn btn-primary mt-3" data-bs-dismiss="modal">
+                    Entendido
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        const formulario = document.getElementById("formularioPedido");
+
+        function convertirBase64(archivo) {
+            return new Promise((resolve, reject) => {
+                const lector = new FileReader();
+                lector.onload = () => resolve(lector.result.split(",")[1]);
+                lector.onerror = reject;
+                lector.readAsDataURL(archivo);
+            });
+        }
+
+        formulario.addEventListener("submit", async(e) => {
+            e.preventDefault();
+
+            const btn = document.getElementById("btnEnviar");
+            btn.disabled = true;
+            btn.innerHTML = "⏳ Enviando...";
+
+            try {
+
+                let archivoBase64 = "";
+                let archivoNombre = "";
+                let archivoTipo = "";
+
+                const archivo = formulario.archivo.files[0];
+
+                if (archivo) {
+                    archivoBase64 = await convertirBase64(archivo);
+                    archivoNombre = archivo.name;
+                    archivoTipo = archivo.type;
+                }
+
+                const datos = new URLSearchParams();
+
+                datos.append("cliente", formulario.cliente.value);
+                datos.append("correo", formulario.correo.value);
+                datos.append("telefono", formulario.telefono.value);
+                datos.append("titulo", formulario.titulo.value);
+                datos.append("descripcion", formulario.descripcion.value);
+                datos.append("obsCliente", formulario.obsCliente.value);
+                datos.append("archivoNombre", archivoNombre);
+                datos.append("archivoTipo", archivoTipo);
+                datos.append("archivoBase64", archivoBase64);
+
+                const res = await fetch("https://script.google.com/macros/s/AKfycbwjsm02js41JXRMTprgOss1DuRFMY6hxEN94aSW_TEbzIun24kySoYF0IY5e0SsXCWw/exec", {
+                    method: "POST",
+                    body: datos
+                });
+
+                const text = await res.text();
+
+                if (text.includes("OK")) {
+
+                    // ✅ MOSTRAR MODAL
+                    document.getElementById("nombreCliente").textContent = formulario.cliente.value;
+
+                    const modal = new bootstrap.Modal(document.getElementById('modalExito'));
+                    modal.show();
+
+                    formulario.reset();
+                }
+
+            } catch (err) {
+                console.error(err);
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = "Enviar Solicitud";
+        });
+    </script>
+
+    <!-- Bootstrap JS (NECESARIO PARA MODAL) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
